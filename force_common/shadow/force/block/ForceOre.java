@@ -8,7 +8,7 @@ import shadow.force.creativeTabs.Tabs;
 import shadow.force.item.Items;
 import shadow.force.lib.Ref;
 
-public class ForceOre extends Block{
+public class ForceOre extends Block {
 
 	public ForceOre(int id){
 		super(id, Material.rock);

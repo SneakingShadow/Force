@@ -31,7 +31,6 @@ public class Force {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		new Registry();
-		
 	};
 	
 	@EventHandler

@@ -4,7 +4,7 @@ import net.minecraft.item.Item;
 import shadow.force.creativeTabs.Tabs;
 import shadow.force.lib.Ref;
 
-public class ForceCrystal extends Item{
+public class ForceCrystal extends Item {
 
 	public ForceCrystal(int id) {
 		super(id);

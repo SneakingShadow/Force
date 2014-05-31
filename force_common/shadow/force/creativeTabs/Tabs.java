@@ -5,7 +5,7 @@ import net.minecraft.item.ItemStack;
 import shadow.force.item.Items;
 import shadow.force.lib.Ref;
 
-public class Tabs{
+public class Tabs {
 	
 		public static CreativeTabs tabForce = new CreativeTabs(Ref.MOD_ID){
 			public ItemStack getIconItemStack() {

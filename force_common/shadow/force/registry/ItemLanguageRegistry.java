@@ -1,4 +1,4 @@
-package shadow.force.registry.language;
+package shadow.force.registry;
 
 import shadow.force.Force;
 import cpw.mods.fml.common.registry.LanguageRegistry;

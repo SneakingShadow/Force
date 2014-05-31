@@ -22,17 +22,6 @@ import cpw.mods.fml.common.network.NetworkMod;
 @NetworkMod(clientSideRequired = true, serverSideRequired = true)
 public class Force {
 	
-	//Creative tabs
-	public static CreativeTabs tabForce = new CreativeTabs("tabForce"){
-        public ItemStack getIconItemStack() {
-        	return new ItemStack(Force.forceCrystal, 1, 0);
-        }
-    };
-    
-    public static Item forceCrystal = new ForceCrystal(2500);
-    
-    public static Block forceOre = new ForceOre(800);
-    
     @Instance(value = Ref.MOD_ID)
 	public static Force instance;
 	

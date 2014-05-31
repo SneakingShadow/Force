@@ -1,12 +1,12 @@
 package shadow.force.registry;
 
-import shadow.force.Force;
+import shadow.force.block.Blocks;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class BlockGameRegistry {
 	public BlockGameRegistry(){
 		
-		GameRegistry.registerBlock(Force.forceOre, "forceOre");
+		GameRegistry.registerBlock(Blocks.forceOre, "forceOre");
 		
 	}
 }

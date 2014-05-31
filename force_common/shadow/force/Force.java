@@ -8,11 +8,7 @@ import shadow.force.block.ForceOre;
 import shadow.force.item.ForceCrystal;
 import shadow.force.lib.Ref;
 import shadow.force.proxy.CommonProxy;
-import shadow.force.registry.language.BlockGameRegistry;
-import shadow.force.registry.language.BlockLanguageRegistry;
-import shadow.force.registry.language.ItemGameRegistry;
-import shadow.force.registry.language.ItemLanguageRegistry;
-import shadow.force.registry.language.TabLanguageRegistry;
+import shadow.force.registry.Registry;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -45,14 +41,7 @@ public class Force {
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-		new TabLanguageRegistry();
-		new ItemLanguageRegistry();
-		new BlockLanguageRegistry();
-		new BlockGameRegistry();
-		new ItemGameRegistry();
-		
-		
-		
+		new Registry();
 		
 	};
 	

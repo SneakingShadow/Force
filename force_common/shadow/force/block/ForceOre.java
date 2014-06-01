@@ -24,6 +24,10 @@ public class ForceOre extends Block {
         return Items.forceCrystal.itemID;
 	}
 	
+	public int quantityDropped(int fortune, Random random){
+    	return 3 + random.nextInt(2);
+    }
+	
     public int quantityDroppedWithBonus(int fortune, Random random){
     	return 3 + random.nextInt(fortune+2);
     }

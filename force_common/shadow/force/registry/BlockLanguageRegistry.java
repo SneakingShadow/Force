@@ -7,6 +7,7 @@ public class BlockLanguageRegistry {
 	public BlockLanguageRegistry(){
 	
 		LanguageRegistry.addName(Blocks.forceOre, "Materialized Force Crystal Ore");
-	
+		LanguageRegistry.addName(Blocks.forceFurnace, "Force furnace");
+		
 	} 
 }

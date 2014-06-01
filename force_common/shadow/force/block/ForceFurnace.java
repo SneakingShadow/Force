@@ -18,6 +18,8 @@ import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.Icon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import shadow.force.creativeTabs.Tabs;
+import shadow.force.lib.Ref;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -45,6 +47,8 @@ public class ForceFurnace extends BlockContainer {
         setHardness(5F);
         setResistance(7F);
         setStepSound(Block.soundStoneFootstep);
+        setCreativeTab(Tabs.tabForce);
+        setUnlocalizedName("forceFurnace");
         this.isActive = par2;
     }
 
@@ -89,8 +93,6 @@ public class ForceFurnace extends BlockContainer {
             if (Block.opaqueCubeLookup[k1] && !Block.opaqueCubeLookup[j1]) {
                 b0 = 4;
             }
-
-            par1World.setBlockMetadataWithNotify(par2, par3, par4, b0, 2);
         }
     }
 
@@ -100,7 +102,7 @@ public class ForceFurnace extends BlockContainer {
      * From the specified side and block metadata retrieves the blocks texture. Args: side, metadata
      */
     public Icon getIcon(int par1, int par2) {
-        return par1 == 1 ? this.furnaceIconTop : (par1 == 0 ? this.furnaceIconTop : (par1 != par2 ? this.blockIcon : this.furnaceIconFront));
+        return par1 == 1 ? this.furnaceIconTop : (par1 == 0 ? this.furnaceIconTop : this.blockIcon);
     }
 
     @SideOnly(Side.CLIENT)
@@ -110,9 +112,9 @@ public class ForceFurnace extends BlockContainer {
      * is the only chance you get to register icons.
      */
     public void registerIcons(IconRegister par1IconRegister) {
-        this.blockIcon = par1IconRegister.registerIcon("furnace_side");
-        this.furnaceIconFront = par1IconRegister.registerIcon(this.isActive ? "furnace_front_on" : "furnace_front_off");
-        this.furnaceIconTop = par1IconRegister.registerIcon("furnace_top");
+        this.blockIcon = par1IconRegister.registerIcon(Ref.MOD_ID + ":" + "force_furnace_side");
+        this.furnaceIconFront = par1IconRegister.registerIcon(Ref.MOD_ID + ":" + "force_furnace_front");
+        this.furnaceIconTop = par1IconRegister.registerIcon(Ref.MOD_ID + ":" + "force_furnace_top");
     }
 
     /**

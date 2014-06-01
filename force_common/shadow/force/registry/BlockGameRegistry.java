@@ -7,6 +7,7 @@ public class BlockGameRegistry {
 	public BlockGameRegistry(){
 		
 		GameRegistry.registerBlock(Blocks.forceOre, "forceOre");
+		GameRegistry.registerBlock(Blocks.forceFurnace, "forceFurnace");
 		
 	}
 }

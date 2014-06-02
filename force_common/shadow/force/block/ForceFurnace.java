@@ -51,14 +51,7 @@ public class ForceFurnace extends BlockContainer {
         setUnlocalizedName("forceFurnace");
         this.isActive = par2;
     }
-
-    /**
-     * Returns the ID of the items to drop on destruction.
-     */
-    public int idDropped(int par1, Random par2Random, int par3) {
-        return Block.furnaceIdle.blockID;
-    }
-
+    
     /**
      * Called whenever the block is added into the world. Args: world, x, y, z
      */
@@ -101,10 +94,9 @@ public class ForceFurnace extends BlockContainer {
     /**
      * From the specified side and block metadata retrieves the blocks texture. Args: side, metadata
      */
-    public Icon getIcon(int par1, int par2) {
-        return par1 == 1 ? this.furnaceIconTop : (par1 == 0 ? this.furnaceIconTop : this.blockIcon);
+    public Icon getIcon(int par1, int par2){
+        return par1 == 1 ? this.furnaceIconTop : (par1 == 0 ? this.furnaceIconTop : (par1 != par2 ? this.blockIcon : this.furnaceIconFront));
     }
-
     @SideOnly(Side.CLIENT)
 
     /**
@@ -133,30 +125,7 @@ public class ForceFurnace extends BlockContainer {
             return true;
         }
     }
-
-    /**
-     * Update which block ID the furnace is using depending on whether or not it is burning
-     */
-    public static void updateFurnaceBlockState(boolean par0, World par1World, int par2, int par3, int par4) {
-        int l = par1World.getBlockMetadata(par2, par3, par4);
-        TileEntity tileentity = par1World.getBlockTileEntity(par2, par3, par4);
-        keepFurnaceInventory = true;
-
-        if (par0) {
-            par1World.setBlock(par2, par3, par4, Block.furnaceBurning.blockID);
-        } else {
-            par1World.setBlock(par2, par3, par4, Block.furnaceIdle.blockID);
-        }
-
-        keepFurnaceInventory = false;
-        par1World.setBlockMetadataWithNotify(par2, par3, par4, l, 2);
-
-        if (tileentity != null) {
-            tileentity.validate();
-            par1World.setBlockTileEntity(par2, par3, par4, tileentity);
-        }
-    }
-
+    
     @SideOnly(Side.CLIENT)
 
     /**
@@ -227,7 +196,7 @@ public class ForceFurnace extends BlockContainer {
      * metadata
      */
     public void breakBlock(World par1World, int par2, int par3, int par4, int par5, int par6) {
-        if (!keepFurnaceInventory) {
+        
             TileEntityFurnace tileentityfurnace = (TileEntityFurnace)par1World.getBlockTileEntity(par2, par3, par4);
 
             if (tileentityfurnace != null) {
@@ -265,7 +234,7 @@ public class ForceFurnace extends BlockContainer {
 
                 par1World.func_96440_m(par2, par3, par4, par5);
             }
-        }
+        
 
         super.breakBlock(par1World, par2, par3, par4, par5, par6);
     }
@@ -284,14 +253,5 @@ public class ForceFurnace extends BlockContainer {
      */
     public int getComparatorInputOverride(World par1World, int par2, int par3, int par4, int par5) {
         return Container.calcRedstoneFromInventory((IInventory)par1World.getBlockTileEntity(par2, par3, par4));
-    }
-
-    @SideOnly(Side.CLIENT)
-
-    /**
-     * only called by clickMiddleMouseButton , and passed to inventory.setCurrentItem (along with isCreative)
-     */
-    public int idPicked(World par1World, int par2, int par3, int par4) {
-        return Block.furnaceIdle.blockID;
     }
 }
